@@ -1,0 +1,51 @@
+[package]
+name = "polishapi"
+version = "0.1.0"
+edition = "2021"
+authors = ["Marcin Wionczyk <marcin.wionczyk@gmail.com>"]
+description = "Rust Client Library for PolishAPI - Polish Open Banking Standard"
+license = "MIT"
+repository = "https://github.com/marcinwionczyk/PolishAPI"
+documentation = "https://docs.rs/polishapi"
+keywords = ["banking", "api", "psd2", "open-banking", "polish"]
+categories = ["api-bindings", "web-programming::http-client"]
+
+[dependencies]
+# HTTP client
+reqwest = { version = "0.12", features = ["json", "rustls-tls"], default-features = false }
+
+# Cryptography
+ring = "0.17"
+base64 = "0.22"
+
+# Serialization
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+
+#Async runtime
+tokio = { version = "1.0", features = ["full"] }
+
+# Utilities
+uuid = { version = "1.0", features = ["v4", "serde"] }
+chrono = { version = "0.4", features = ["serde"] }
+url = "2.5"
+pem = "3.0"
+
+# Error handling
+thiserror = "2.0"
+anyhow = "1.0"
+
+# JWT/JWS handling
+jsonwebtoken = "9.0"
+
+# Logging
+log = "0.4"
+
+[dev-dependencies]
+tokio-test = "0.4"
+mockito = "1.7"
+
+[features]
+default = ["rustls-tls"]
+rustls-tls = ["reqwest/rustls-tls"]
+native-tls = ["reqwest/native-tls"]
