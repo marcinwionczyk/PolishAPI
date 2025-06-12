@@ -22,6 +22,7 @@
 //! #[tokio::main]
 //! async fn main() -> Result<(), Box<dyn std::error::Error>> {
 //!     let config = Config::new("https://api.bank.example.com")
+//!         .expect("Could not create config")
 //!         .with_client_id("your-client-id")
 //!         .with_client_secret("your-client-secret");
 //!
