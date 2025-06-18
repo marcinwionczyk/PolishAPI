@@ -151,8 +151,8 @@ mod tests {
 
     #[test]
     fn test_validate_bic() {
-        assert!(validate_bic("DEUTDEFF").is_ok());
-        assert!(validate_bic("DEUTDEFF500").is_ok());
+        assert!(validate_bic("BREXPLPW").is_ok());  // MBank
+        assert!(validate_bic("BREXPLPWXXX").is_ok());   //MBank
         assert!(validate_bic("INVALID").is_err());
         assert!(validate_bic("").is_err());
     }
